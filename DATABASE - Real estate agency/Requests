@@ -1,0 +1,23 @@
+SELECT IDobject FROM Deals GROUP BY IDobject HAVING count(IDobject) > 1;
+
+SELECT IDobject FROM ( SELECT IDobject, count(IDobject)
+AS count FROM Deals GROUP BY IDobject ) as id_count WHERE count > 1;
+ 
+ SELECT * FROM Object;
+ SELECT IDemployee, Рosition,Full_name_employee FROM employee;
+  
+SELECT * FROM Object WHERE Price > 58900;
+
+SELECT * FROM Deals WHERE Agency_Commission > 3000;
+
+SELECT s.IDobject,a.Price,s.Agency_Commission
+from Object a join Deals s 
+on (s.IDobject= a.IDobject) where a.IDobject = 438975
+
+SELECT COUNT(*) FROM Deals;
+
+SELECT Object_type, COUNT(*) FROM Deals GROUP BY Object_type;
+
+SELECT COUNT(*) AS Object_type, Price, Agency_Commission FROM Deals GROUP BY Price HAVING Object_type > 1;
+SELECT DISTINCT Deal_date FROM Deals;
+SELECT HIGH_PRIORITY * FROM Deals WHERE IDemployee = 100;

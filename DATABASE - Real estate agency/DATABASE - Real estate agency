@@ -1,0 +1,57 @@
+CREATE TABLE  `Client`(
+ `IDсlient`smallint,
+  `Рhone`varchar(20),
+ `birthdate`date,
+  `passports`char(15),
+  `Full_name_Client` varchar(50),
+  PRIMARY KEY (`IDсlient`)
+);
+CREATE TABLE  `employee` (
+  `IDemployee`mediumint,
+  `Рhone`varchar(20),
+  `Рosition`varchar(30),
+  `Full_name_employee` varchar(50),
+  PRIMARY KEY (`IDemployee`)
+);
+CREATE TABLE  `Owner` (
+  `IDowner`int ,
+  `Рhone`varchar(20),
+  `birthdate`date,
+  `passports`char(15),
+  `Full_name_owner`varchar(30),
+  PRIMARY KEY (`IDowner`)
+);
+CREATE TABLE `Object` (
+  `IDobject`int ,
+  `IDowner`int ,
+  `IDemployee`mediumint ,
+  `Рhone`varchar(30),
+  `Object_type`varchar(20),
+  `Storey`char(4),
+`Descri_ption` varchar(400),
+ `Address`char(100),
+`Square`varchar(20),
+  `Number_of_rooms`char(20),
+`Price`decimal(7.2),
+  PRIMARY KEY (`IDobject`),
+FOREIGN KEY (`IDemployee`) REFERENCES `Employee` (`IDemployee`) ON DELETE CASCADE,
+FOREIGN KEY (`IDowner`) REFERENCES `Owner` (`IDowner`) ON DELETE CASCADE
+);
+CREATE TABLE  `Deals` (
+ `IDdeals`int,
+  `IDobject`int,
+  `IDemployee`mediumint,
+  `IDowner`int,
+  `IDсlient`smallint,
+  `Object_type`varchar(20),
+  `Price`decimal(7.2),
+  `Agency_Commission` decimal(7.2),
+  `Deal_date`date,
+  `Deal_status`varchar(50),
+  PRIMARY KEY (`IDdeals`),
+  FOREIGN KEY (`IDemployee`) REFERENCES `Employee` (`IDemployee`) ON DELETE CASCADE,
+  FOREIGN KEY (`IDowner`) REFERENCES `Owner`(`IDowner`) ON DELETE CASCADE,
+  FOREIGN KEY (`IDсlient`) REFERENCES `Client` (`IDсlient`) ON DELETE CASCADE, 
+  FOREIGN KEY (`IDobject`) REFERENCES `Object` (`IDobject`) ON DELETE CASCADE
+);
+

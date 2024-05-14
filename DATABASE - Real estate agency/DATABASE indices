@@ -1,0 +1,15 @@
+CREATE INDEX IDсlient_index ON Client (IDсlient);
+
+CREATE INDEX Full_name_Client_index on Client (Full_name_Client);
+
+CREATE INDEX Object_type_index on Object (Object_type);
+
+CREATE INDEX Price_index on Object (Price);
+
+CREATE INDEX IDemployee_index on Object (IDemployee);
+
+CREATE INDEX IDowner_index on Object (IDowner);
+
+CREATE INDEX Agency_Commission_index on Deals (Agency_Commission);
+
+CREATE INDEX Deal_status_index on Deals (Deal_status);
